@@ -1,12 +1,14 @@
 <h1 class="subheader">Pagina prueba</h1>
 
-<div *ngIf="nombre && apellidos">
+<div *ngIf="nombre && apellidos; then siHayParametros else noHayParametros"></div>
+
+<ng-template #siHayParametros>
     <h2>El nombre es: {{nombre}}</h2>
     <h2>Los apellidos son: {{apellidos}}</h2>
-</div>
+</ng-template>
 
-<div *ngIf="!nombre || !apellidos">
+<ng-template #noHayParametros>
     <h2>No hay paramentros por la url</h2>
-</div>
+</ng-template>
 
 <button (click)="redireccion()" >Llevame al formulario</button>

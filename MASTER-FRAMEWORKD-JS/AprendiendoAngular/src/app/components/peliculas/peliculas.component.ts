@@ -1,4 +1,5 @@
 import { Component, OnInit, DoCheck,OnDestroy } from '@angular/core';
+import { Pelicula } from '../../models/pelicula';
 
 @Component({
   selector: 'app-peliculas',
@@ -7,15 +8,23 @@ import { Component, OnInit, DoCheck,OnDestroy } from '@angular/core';
   styleUrl: './peliculas.component.css'
 })
 export class PeliculasComponent implements OnInit,DoCheck,OnDestroy {
+  
   public titulo : string;
+  public peliculas : Pelicula[];
+
   //no meter logica en el constructor, solo seleccionar valor 
   constructor(){
     this.titulo = "Componente peliculas";
-    console.log('Constructor lanzado');
+    this.peliculas = [
+      new Pelicula("Spiderman Homecoming",2020,'https://images.hdqwalls.com/download/spiderman-homecoming-2017-movie-qj-3840x2400.jpg'),
+      new Pelicula("Los thuderbots",2025,'https://th.bing.com/th/id/OIP.5Jp1gM1m75vO-QVBH4R_cwHaEK?rs=1&pid=ImgDetMain'),
+      new Pelicula("Batman vs Superman",2018,'https://images.hdqwalls.com/download/batman-vs-superman-10k-ej-1920x1080.jpg')
+    ]
   }
 
   //este esta creado para colocar logica
   ngOnInit(): void {
+      console.log(this.peliculas);
       console.log('Componente iniciado!!');
   }
 
