@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css'
 })
-export class SliderComponent {
+export class SliderComponent implements OnInit {
+  @Input() nombre?:string;
 
+  constructor(){ }
+
+  ngOnInit(): void {
+    
+  }
 }
