@@ -1,11 +1,13 @@
 import { Component, OnInit, DoCheck,OnDestroy } from '@angular/core';
 import { Pelicula } from '../../models/pelicula';
+import { PeliculaService } from '../../services/pelicula.service';
 
 @Component({
   selector: 'app-peliculas',
   standalone: false,
   templateUrl: './peliculas.component.html',
-  styleUrl: './peliculas.component.css'
+  styleUrl: './peliculas.component.css',
+  providers: [PeliculaService]
 })
 export class PeliculasComponent implements OnInit,DoCheck,OnDestroy {
   
@@ -15,13 +17,11 @@ export class PeliculasComponent implements OnInit,DoCheck,OnDestroy {
   public fecha: any;
 
   //no meter logica en el constructor, solo seleccionar valor 
-  constructor(){
+  constructor(
+    private _peliculaService: PeliculaService
+  ){
     this.titulo = "Componente peliculas";
-    this.peliculas = [
-      new Pelicula("Spiderman Homecoming",2020,'https://images.hdqwalls.com/download/spiderman-homecoming-2017-movie-qj-3840x2400.jpg'),
-      new Pelicula("Los thuderbots",2025,'https://th.bing.com/th/id/OIP.5Jp1gM1m75vO-QVBH4R_cwHaEK?rs=1&pid=ImgDetMain'),
-      new Pelicula("Batman vs Superman",2018,'https://images.hdqwalls.com/download/batman-vs-superman-10k-ej-1920x1080.jpg')
-    ];
+    this.peliculas = this._peliculaService.getPeliculas();
     this.favorita={'image':'','year':0,'title':''};
     this.fecha= new Date();
   }
@@ -29,6 +29,7 @@ export class PeliculasComponent implements OnInit,DoCheck,OnDestroy {
   //este esta creado para colocar logica
   ngOnInit(): void {
       console.log('Componente iniciado!!');
+      console.log(this._peliculaService.holaMundo())
   }
 
   ngDoCheck(): void {
