@@ -1,6 +1,6 @@
 import {
   InjectionToken
-} from "./chunk-PR7ILNDV.js";
+} from "./chunk-XOTSFRSW.js";
 
 // node_modules/@angular/common/fesm2022/xhr-BfNfxNDv.mjs
 function parseCookieValue(cookieStr, name) {
@@ -42,9 +42,9 @@ export {
 @angular/common/fesm2022/xhr-BfNfxNDv.mjs:
 @angular/common/fesm2022/dom_tokens-rA0ACyx7.mjs:
   (**
-   * @license Angular v19.2.10
+   * @license Angular v19.2.11
    * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-6PDN4FSY.js.map
+//# sourceMappingURL=chunk-B3ZHPNHS.js.map

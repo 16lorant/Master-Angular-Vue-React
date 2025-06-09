@@ -15744,7 +15744,7 @@ var ComponentFactory2 = class extends ComponentFactory$1 {
     try {
       const cmpDef = this.componentDef;
       ngDevMode && verifyNotAnOrphanComponent(cmpDef);
-      const tAttributes = rootSelectorOrNode ? ["ng-version", "19.2.10"] : (
+      const tAttributes = rootSelectorOrNode ? ["ng-version", "19.2.11"] : (
         // Extract attributes and classes from the first selector only to match VE behavior.
         extractAttrsAndClassesFromSelector(this.componentDef.selectors[0])
       );
@@ -25329,7 +25329,7 @@ var Version = class {
     this.patch = parts.slice(2).join(".");
   }
 };
-var VERSION = new Version("19.2.10");
+var VERSION = new Version("19.2.11");
 var ModuleWithComponentFactories = class {
   ngModuleFactory;
   componentFactories;
@@ -29988,14 +29988,14 @@ export {
 @angular/core/fesm2022/primitives/signals.mjs:
 @angular/core/fesm2022/primitives/event-dispatch.mjs:
   (**
-   * @license Angular v19.2.10
+   * @license Angular v19.2.11
    * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/core/fesm2022/core.mjs:
   (**
-   * @license Angular v19.2.10
+   * @license Angular v19.2.11
    * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
@@ -30016,4 +30016,4 @@ export {
    * found in the LICENSE file at https://angular.dev/license
    *)
 */
-//# sourceMappingURL=chunk-PR7ILNDV.js.map
+//# sourceMappingURL=chunk-XOTSFRSW.js.map

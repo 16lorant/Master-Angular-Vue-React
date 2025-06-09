@@ -1,7 +1,7 @@
 import {
   DOCUMENT,
   isPlatformBrowser
-} from "./chunk-6PDN4FSY.js";
+} from "./chunk-B3ZHPNHS.js";
 import {
   ApplicationRef,
   Attribute,
@@ -64,9 +64,9 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-PR7ILNDV.js";
+} from "./chunk-XOTSFRSW.js";
 
-// node_modules/@angular/common/fesm2022/location-DpBxd_aX.mjs
+// node_modules/@angular/common/fesm2022/location-Dq4mJT-A.mjs
 var _DOM = null;
 function getDOM() {
   return _DOM;
@@ -228,7 +228,7 @@ var PathLocationStrategy = class _PathLocationStrategy extends LocationStrategy 
     this._platformLocation = _platformLocation;
     this._baseHref = href ?? this._platformLocation.getBaseHrefFromDOM() ?? inject(DOCUMENT).location?.origin ?? "";
   }
-  /** @nodoc */
+  /** @docs-private */
   ngOnDestroy() {
     while (this._removeListenerFns.length) {
       this._removeListenerFns.pop()();
@@ -319,7 +319,7 @@ var Location = class _Location {
       });
     });
   }
-  /** @nodoc */
+  /** @docs-private */
   ngOnDestroy() {
     this._urlChangeSubscription?.unsubscribe();
     this._urlChangeListeners = [];
@@ -553,7 +553,7 @@ function _stripOrigin(baseHref) {
   return baseHref;
 }
 
-// node_modules/@angular/common/fesm2022/common_module-BukMeiI7.mjs
+// node_modules/@angular/common/fesm2022/common_module-Dx7dWex5.mjs
 var HashLocationStrategy = class _HashLocationStrategy extends LocationStrategy {
   _platformLocation;
   _baseHref = "";
@@ -565,7 +565,7 @@ var HashLocationStrategy = class _HashLocationStrategy extends LocationStrategy 
       this._baseHref = _baseHref;
     }
   }
-  /** @nodoc */
+  /** @docs-private */
   ngOnDestroy() {
     while (this._removeListenerFns.length) {
       this._removeListenerFns.pop()();
@@ -2156,7 +2156,7 @@ var NgComponentOutlet = class _NgComponentOutlet {
   _needToReCreateComponentInstance(changes) {
     return changes["ngComponentOutlet"] !== void 0 || changes["ngComponentOutletContent"] !== void 0 || changes["ngComponentOutletInjector"] !== void 0 || this._needToReCreateNgModuleInstance(changes);
   }
-  /** @nodoc */
+  /** @docs-private */
   ngOnChanges(changes) {
     if (this._needToReCreateComponentInstance(changes)) {
       this._viewContainerRef.clear();
@@ -2182,7 +2182,7 @@ var NgComponentOutlet = class _NgComponentOutlet {
       }
     }
   }
-  /** @nodoc */
+  /** @docs-private */
   ngDoCheck() {
     if (this._componentRef) {
       if (this.ngComponentOutletInputs) {
@@ -2193,7 +2193,7 @@ var NgComponentOutlet = class _NgComponentOutlet {
       this._applyInputStateDiff(this._componentRef);
     }
   }
-  /** @nodoc */
+  /** @docs-private */
   ngOnDestroy() {
     this._moduleRef?.destroy();
   }
@@ -2349,7 +2349,7 @@ var NgForOf = class _NgForOf {
   }
   /**
    * Applies the changes when needed.
-   * @nodoc
+   * @docs-private
    */
   ngDoCheck() {
     if (this._ngForOfDirty) {
@@ -2677,7 +2677,7 @@ var NgSwitchCase = class _NgSwitchCase {
   }
   /**
    * Performs case matching. For internal use only.
-   * @nodoc
+   * @docs-private
    */
   ngDoCheck() {
     this._view.enforceState(this.ngSwitch._matchCase(this.ngSwitchCase));
@@ -3682,7 +3682,7 @@ var PlatformNavigation = class _PlatformNavigation {
 function registerLocaleData2(data, localeId, extraData) {
   return registerLocaleData(data, localeId, extraData);
 }
-var VERSION = new Version("19.2.10");
+var VERSION = new Version("19.2.11");
 var ViewportScroller = class _ViewportScroller {
   // De-sugared tree-shakable injection
   // See #23917
@@ -4387,7 +4387,7 @@ var NgOptimizedImage = class _NgOptimizedImage {
       });
     }
   }
-  /** @nodoc */
+  /** @docs-private */
   ngOnInit() {
     performanceMarkFeature("NgOptimizedImage");
     if (ngDevMode) {
@@ -4465,7 +4465,7 @@ var NgOptimizedImage = class _NgOptimizedImage {
       preloadLinkCreator.createPreloadLinkTag(this.renderer, this.getRewrittenSrc(), rewrittenSrcset, this.sizes);
     }
   }
-  /** @nodoc */
+  /** @docs-private */
   ngOnChanges(changes) {
     if (ngDevMode) {
       assertNoPostInitInputChange(this, changes, ["ngSrcset", "width", "height", "priority", "fill", "loading", "sizes", "loaderParams", "disableOptimizedSrcset"]);
@@ -5108,14 +5108,14 @@ export {
 };
 /*! Bundled license information:
 
-@angular/common/fesm2022/location-DpBxd_aX.mjs:
-@angular/common/fesm2022/common_module-BukMeiI7.mjs:
+@angular/common/fesm2022/location-Dq4mJT-A.mjs:
+@angular/common/fesm2022/common_module-Dx7dWex5.mjs:
 @angular/common/fesm2022/platform_navigation-B45Jeakb.mjs:
 @angular/common/fesm2022/common.mjs:
   (**
-   * @license Angular v19.2.10
+   * @license Angular v19.2.11
    * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-4ZICNT4A.js.map
+//# sourceMappingURL=chunk-KN6SQWZW.js.map
