@@ -5,7 +5,7 @@ import { Article } from "../models/article";
 import { Global } from "./global";
 
 @Injectable()
-export class AritcleService {
+export class ArticleService {
 
     public url: string;
 
@@ -27,5 +27,8 @@ export class AritcleService {
         }
         
         return this._http.get(this.url+articles);
+    }
+    getArticle(articleId:any=null):Observable<any>{    
+        return this._http.get(this.url+'article/'+articleId);
     }
 }

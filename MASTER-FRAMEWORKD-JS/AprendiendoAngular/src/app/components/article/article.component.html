@@ -1,30 +1,24 @@
-<app-slider 
-            [nombre]="'Blog'"
-            [size]="'small'"
-></app-slider>
-
 <div class="center">
     
     <section id="content">
     
         <article class="article-item article-details">
             <div class="images-wrap">
-                <img src="https://th.bing.com/th/id/R.98eef5af5a19d7080845fe51311d957f?rik=Zl7Frh%2b5bpFi2w&riu=http%3a%2f%2f1.bp.blogspot.com%2f-zKX8CREi3QY%2fT2OMZgW3s6I%2fAAAAAAAAWzg%2f5sFH754c6sw%2fs1600%2fLos-mas-Hermosos-Paisajes-Naturales_04.jpg&ehk=A5duiR2F2V2mfQjbuU33wpthxZXzqvPo5UMVfvokH9Y%3d&risl=&pid=ImgRaw&r=0" alt="Paisaje" />
+                <img src="{{url+'get-image/'+article.image}}" alt="{{article.title}}" *ngIf="article.image" />
+                <img src="https://image.shutterstock.com/z/stock-vector-image-icon-211642900.jpg" alt="{{article.title}}" *ngIf="!article.image" />
             </div>
 
-            <h1 class="subheader">Articulo de prueba</h1>
+            <h1 class="subheader">{{article.title}}</h1>
             <span class="date">
-                Hace 5 minutos
+                {{article.date | date:'mediumDate'}}
             </span>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pretium ante eu eleifend congue. Suspendisse eu mollis diam, vel aliquet erat. Pellentesque tincidunt, nibh sit amet maximus tempus, odio lectus lobortis quam, ac laoreet dui orci a purus. Nulla auctor, est non condimentum feugiat, eros lorem posuere turpis, et imperdiet massa tortor eget erat. Mauris a tellus hendrerit, accumsan enim auctor, faucibus dolor. Quisque non volutpat eros, a vestibulum lorem. Sed imperdiet tellus tellus, eget vestibulum turpis congue eget. Aliquam a dui fermentum, semper magna ut, malesuada augue. Donec efficitur, ante non faucibus tincidunt, nulla mi rutrum quam, in sagittis dui turpis et lorem. Aliquam lorem risus, laoreet vitae pellentesque eu, tincidunt id mauris. Nulla volutpat in quam eu finibus. Sed quis laoreet est, in consectetur metus. Nunc sodales enim quis consectetur gravida. Aliquam eget eros nibh. Maecenas non mauris eros. Aenean est velit, viverra a interdum ut, vulputate suscipit justo.
+                {{article.content}}
             </p>
-            <p>
-                Etiam egestas metus in odio finibus dapibus. Pellentesque id urna nec sem finibus imperdiet. Pellentesque tincidunt risus ac orci rutrum sollicitudin. Donec eu orci at velit lobortis lacinia et sed eros. Etiam ultrices quis ligula ut tempus. Donec varius, diam ornare pellentesque congue, libero tellus rhoncus tellus, sed porta tellus enim sed orci. Aliquam placerat, ipsum nec volutpat efficitur, nunc purus tristique tortor, in finibus nibh sapien hendrerit dui. Vestibulum sodales porta sapien sed suscipit. Suspendisse potenti. Nam nec leo sem. Pellentesque vitae ullamcorper mauris. In tristique dui ut eros luctus vehicula. Cras vitae volutpat quam, ut cursus dolor.
-            </p>
-            <p>
-                Ut quis egestas ex, ut fringilla dolor. Nunc volutpat dignissim nisi, vitae efficitur nisi tincidunt id. Mauris semper lorem at placerat aliquet. Donec suscipit id tellus a pellentesque. Fusce ex velit, egestas a purus in, tempor vestibulum ex. Pellentesque laoreet interdum feugiat. Integer id maximus ex. Ut ac gravida libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent cursus elementum sagittis. Phasellus euismod dolor nisi, eu tristique felis lacinia ac. In hac habitasse platea dictumst.
-            </p>
+            <div class="buttons">
+                <a href="#" class="btn btn-warning">Editar</a>
+                <a href="#" class="btn btn-danger">Borrar</a>
+            </div>
             <div class="clearfix"></div>
         </article>
     

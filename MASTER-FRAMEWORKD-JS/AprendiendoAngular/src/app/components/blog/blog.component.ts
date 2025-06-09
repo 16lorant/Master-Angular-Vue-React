@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AritcleService } from '../../services/article.service';
+import { ArticleService } from '../../services/article.service';
 import { Article } from '../../models/article';
 import { Global } from '../../services/global';
 
@@ -8,7 +8,7 @@ import { Global } from '../../services/global';
   standalone: false,
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css',
-  providers: [AritcleService]
+  providers: [ArticleService]
 })
 export class BlogComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
   public url: string;
 
   constructor(
-    private _articleService: AritcleService
+    private _articleService: ArticleService
   ){
     this.url=Global.url;
   }

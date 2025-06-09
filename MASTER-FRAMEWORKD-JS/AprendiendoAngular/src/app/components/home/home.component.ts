@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AritcleService } from '../../services/article.service';
+import { ArticleService } from '../../services/article.service';
 import { Article } from '../../models/article';
 
 @Component({
@@ -7,7 +7,7 @@ import { Article } from '../../models/article';
   standalone: false,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  providers: [AritcleService]
+  providers: [ArticleService]
 })
 export class HomeComponent implements OnInit{
 
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit{
   public articles? : Article[];
 
   constructor(
-    private _articleService: AritcleService
+    private _articleService: ArticleService
   ){
     this.title = 'Últimos artículos';
   }
