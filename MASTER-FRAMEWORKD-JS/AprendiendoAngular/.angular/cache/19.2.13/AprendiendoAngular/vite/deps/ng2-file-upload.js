@@ -1,7 +1,7 @@
 import {
   CommonModule
-} from "./chunk-FALHU2SU.js";
-import "./chunk-5FYIN6PX.js";
+} from "./chunk-KRDW4Z3T.js";
+import "./chunk-DG4EETPA.js";
 import {
   Directive,
   ElementRef,
@@ -16,7 +16,8 @@ import {
   ɵɵdefineNgModule,
   ɵɵdirectiveInject,
   ɵɵlistener
-} from "./chunk-XOTSFRSW.js";
+} from "./chunk-3ZYNOYTD.js";
+import "./chunk-3OV72XIM.js";
 
 // node_modules/ng2-file-upload/fesm2022/ng2-file-upload.mjs
 var FileLikeObject = class {
