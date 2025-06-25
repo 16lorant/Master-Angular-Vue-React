@@ -21,7 +21,7 @@ export class ArticleComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router
   ){
-    this.article={title:0,'image':'','_id':'','content':'','date':''}
+    this.article={title:'','image':'','_id':'','content':'','date':''}
     this.url=Global.url;
   }
 

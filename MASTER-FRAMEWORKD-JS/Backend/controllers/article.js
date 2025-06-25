@@ -46,7 +46,12 @@ var controller ={
             //asignar valores
             article.title = params.title;
             article.content = params.content;
-            article.image = null;
+            
+            if (params.image) {
+                article.image = params.image;
+            }else{
+                article.image = null;
+            }
 
             //guardar el articulo
             article.save().then((articleStored)=>{
@@ -209,7 +214,7 @@ var controller ={
 
         // Recoger el fichero de la peticion
         var file_name = 'Imagen no subida....';
-
+        console.log(req.files);
         if (!req.files) {
             return res.status(404).send({
                 'status': 'error',
@@ -218,7 +223,7 @@ var controller ={
         }
         
         // Conseguir nombre y la extensio del archivo
-        var file_path = req.files.files.path;
+        var file_path = req.files.file.path;
         var file_split = file_path.split('\\');
 
         // * ADVERTENCIA * EN LINUX O MAC
@@ -245,25 +250,32 @@ var controller ={
         }else{
             // Si todo es valido
             var articleId = req.params.id;
-
-            // Buscar el articulo, asidnarle el nombre de la imagen y actualizarlo
-            Article.findOneAndUpdate({_id:articleId},{image:file_name},{new:true}).then((articleUpdate)=>{
-                if (!articleUpdate) {
-                    return res.status(500).send({
+            if (articleId) {
+                // Buscar el articulo, asidnarle el nombre de la imagen y actualizarlo
+                Article.findOneAndUpdate({_id:articleId},{image:file_name},{new:true}).then((articleUpdate)=>{
+                    if (!articleUpdate) {
+                        return res.status(500).send({
+                            'status': 'error',
+                            message: 'Error al guardar la direccion de la imagen !!!'
+                        });  
+                    }
+                    return res.status(200).send({
+                        status: 'success',
+                        article: articleUpdate
+                    });
+                }).catch((error)=>{
+                    return res.status(404).send({
                         'status': 'error',
-                        message: 'Error al guardar la direccion de la imagen !!!'
-                    });  
-                }
+                        message: 'No existe el articulo !!!'
+                    });
+                });
+            }else{
                 return res.status(200).send({
                     status: 'success',
-                    article: articleUpdate
+                    image:file_name
                 });
-            }).catch((error)=>{
-                return res.status(404).send({
-                    'status': 'error',
-                    message: 'No existe el articulo !!!'
-                });
-            });
+            }
+            
 
             
         }

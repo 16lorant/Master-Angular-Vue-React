@@ -2,6 +2,10 @@
     Cargando...
 </div>
 
+<div class="loading" *ngIf="articles && articles.length == 0">
+    No hay articulos para mostrar, intentalo mas tarde :)
+</div>
+
 <div id="articles" *ngFor="let article of articles">
     <article class="article-item" id="article-template">
         <div class="images-wrap">
