@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/images/logo.svg';
+import './assets/css/App.css';
+
+// Importar componentes
+import MiComponente from './components/MiComponente';
+import Peliculas from './components/Peliculas';
+import Header from './components/Header';
+import Slider from './components/Slider';
+import Siderbar from './components/Siderbar';
+import Footer from './components/Footer';
+import SeccionPruebas from './components/SeccionPruebas';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Curso aprediendo React
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+
+      <Slider/>
+
+      <div className="center">
+        
+        <SeccionPruebas/>
+        <Siderbar/>
+        <div className="clearfix"></div>
+      </div>
+      <Footer/>
     </div>
   );
 }
