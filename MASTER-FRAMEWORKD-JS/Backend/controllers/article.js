@@ -223,7 +223,7 @@ var controller ={
         }
         
         // Conseguir nombre y la extensio del archivo
-        var file_path = req.files.file.path;
+        var file_path = (req.files.file?req.files.file.path:req.files.file0.path);
         var file_split = file_path.split('\\');
 
         // * ADVERTENCIA * EN LINUX O MAC

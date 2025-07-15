@@ -1,5 +1,4 @@
-import React, {Component} from "react";
-import logo from '../assets/images/logo.svg'
+import {Component} from "react";
 
 class Footer extends Component{
     render(){
