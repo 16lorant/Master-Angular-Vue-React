@@ -1,9 +1,11 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>{{ texto }}</h2>
+  <section id="content">
+    <h2 class="subheader">{{ msg }}</h2>
+    <div class="hello">
+      <h2>{{ texto }}</h2>
 
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>

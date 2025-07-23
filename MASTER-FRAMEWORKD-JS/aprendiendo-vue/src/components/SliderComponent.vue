@@ -1,12 +1,16 @@
 <template>
-    <div id="slider" class="slider-big">
-        <h1>Bienvenido al Curso de Vue de Victor Robles</h1>
-        <a href="#" class="btn-white">ir al blog</a>
+    <div id="slider" :class="{
+        'slider-big':home,
+        'slider-small':!home
+    }">
+        <h1>{{ texto }}</h1>
+        <router-link to="/blog" class="btn-white" v-if="home">ir al blog</router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'SliderComponent'
+    name: 'SliderComponent',
+    props:['texto','home']
 }
 </script> 
