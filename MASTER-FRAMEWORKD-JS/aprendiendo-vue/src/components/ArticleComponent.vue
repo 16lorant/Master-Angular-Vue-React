@@ -22,6 +22,8 @@
                             {{article.content}}
                         </p>
                         <div class="clearfix"></div>
+                        <router-link :to="'/editar/'+article._id" class="btn btn-warning">Editar</router-link>
+                        <a @click="deleteArticle(article._id)" class="btn btn-danger">Eliminar</a>
                     </article>
 
                 </div>
@@ -37,6 +39,7 @@ import SiderbarComponent from './SiderbarComponent.vue';
 import Global from '../Global';
 import axios from 'axios';
 import moment from 'moment';
+import swal from 'sweetalert';
 
 export default {
     name: 'ArticleComponent',
@@ -63,6 +66,36 @@ export default {
         },
         convertMoment(date){
             return moment(date).format("ll");
+        },
+        deleteArticle(articleId){
+            swal({
+                title: "Estas seguro?",
+                text: "Borrarás permanentemente tu articulo",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        axios.delete(this.url+'article/'+articleId)
+                        .then(res => {
+                            if(res.data.status=='success'){
+                                swal(
+                                    'Articulo borrado',
+                                    'El articulo ha sido borrado correctamente',
+                                    'success'
+                                );  
+                                this.$router.push('/blog');  
+                            }  
+                        });
+                    } else {
+                        swal(
+                            'Tranquilo',
+                            'No se ha borrado nada',
+                            'info'
+                        );
+                    }
+            });
         }
     }
 

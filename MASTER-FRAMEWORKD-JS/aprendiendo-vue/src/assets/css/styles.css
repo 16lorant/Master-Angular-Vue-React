@@ -234,6 +234,30 @@ body{
     background: black;
 }
 
+.btn-warning{
+    background: rgb(254, 161, 0);
+    color:white !important;
+    text-align: center;
+}
+
+.btn-warning:hover{
+    background: black;
+}
+
+.btn-danger{
+    background: rgb(254, 0, 0);
+    color:white !important;
+    text-align: center;
+}
+
+.image-small{
+    width: 100px;
+}
+
+.btn-danger:hover{
+    background: black;
+}
+
 .mid-form{
     width: 50%;
     margin: 0px auto;

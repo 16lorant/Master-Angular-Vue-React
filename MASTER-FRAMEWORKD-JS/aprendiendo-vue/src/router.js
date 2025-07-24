@@ -11,12 +11,14 @@ import SearchComponent from './components/SearchComponent.vue';
 import RedirectComponent from './components/RedirectComponent.vue';
 import ArticleComponent from './components/ArticleComponent.vue';
 import CreateArticle from './components/CreateArticle.vue';
+import EditArticle from './components/EditArticle.vue';
 
 const routes = [
     {path: '/home',component:LastArticlesComponent},
     {path: '/blog',component:BlogComponent},
     {path: '/articulo/:id', name:'article', component:ArticleComponent},
     {path: '/crear-articulo', name:'create', component:CreateArticle},
+    {path: '/editar/:id', name:'edit', component:EditArticle},
     {path: '/formulario',component:FormularioComponent},
     {path: '/pagina/:id?', name: 'pagina', component:PaginaComponent},
     {path: '/peliculas', name: 'peliculas', component:PeliculasComponent},

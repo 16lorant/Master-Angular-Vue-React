@@ -11,7 +11,7 @@ import swal from 'sweetalert';
 
 
 export default {
-    name:'CreateArticle',
+    name:'EditArticle',
     setup () {
         return { v$: useVuelidate() }
     },
@@ -23,7 +23,8 @@ export default {
             url: Global.url,
             file: null,
             article: new Article('','',null,''),
-            submitted:false
+            submitted:false,
+            isEdit:true
         }
     },
     validations:{
@@ -37,12 +38,23 @@ export default {
         }
     },
     mounted(){
-        //console.log(this.article);
+        var articleId = this.$route.params.id; 
+        console.log('articleId',articleId);
+        if(articleId){
+            this.getArticle(articleId);
+        }
     },
     methods:{
         fileChange(){
             this.file = this.$refs.file.files[0];
             console.log('file',this.file);
+        },
+        getArticle(articleId){
+            axios.get(this.url+'article/'+articleId).then( res =>{
+                if (res.data.status === 'success') {
+                    this.article = res.data.article;
+                }
+            });
         },
         save(){
             this.submitted=true;
@@ -50,10 +62,11 @@ export default {
             if (this.v$.$invalid) {
                 return false;
             }
-
-            axios.post(this.url+'save',this.article)
+            var articleId = this.$route.params.id;
+            axios.put(this.url+'article/'+articleId,this.article)
             .then(res=>{
                 //subida del archivo
+                var articleId=res.data.article._id;
                 if (this.file !== null && this.file != undefined && this.file != '') {
                     const formData = new FormData();
                     formData.append(
@@ -61,20 +74,19 @@ export default {
                         this.file,
                         this.file.name
                     );
-                    var articleId=res.data.articleStored._id;
                     axios.post(this.url+'upload-image/'+articleId,formData).then(res=>{
                         if (res.data.status === "success") {
                             swal(
-                                    'Articulo creado',
-                                    'El articulo se ha creado correctamente',
+                                    'Articulo editado',
+                                    'El articulo se ha editado correctamente',
                                     'success'
                                 );
                             this.article= res.data.article;
-                            this.$router.push('/blog');
+                            this.$router.push('/articulo/'+articleId);
                         }else{
                             swal(
-                                'Creacion fallida',
-                                'El articulo no se ha creado bien',
+                                'Edicion fallida',
+                                'El articulo no se ha editado bien',
                                 'error'
                             );
                         }
@@ -85,16 +97,16 @@ export default {
                 }else{
                     if (res.data.status === "success") {
                         swal(
-                                'Articulo creado',
-                                'El articulo se ha creado correctamente',
+                                'Articulo editado',
+                                'El articulo se ha editado correctamente',
                                 'success'
                             );
-                        this.article= res.data.articleStored;
-                        this.$router.push('/blog');
+                        this.article= res.data.article;
+                        this.$router.push('/articulo/'+articleId);
                     }else{
                         swal(
-                                'Creacion fallida',
-                                'El articulo no se ha creado bien',
+                                'Editado fallida',
+                                'El articulo no se ha editado bien',
                                 'error'
                             );
                     }

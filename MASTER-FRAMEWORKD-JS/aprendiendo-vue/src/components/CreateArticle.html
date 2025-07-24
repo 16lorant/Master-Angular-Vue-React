@@ -1,0 +1,40 @@
+<div class="general">
+    <div class="center">
+        <section id="content">
+            <h2 class="subheader" v-if="!isEdit">Crear articulo</h2>
+            <h2 class="subheader" v-else>Editar articulo</h2>
+            <!--Formulario-->
+            <form class="mid-form" v-on:submit.prevent="save()">
+                <div class="form-group">
+                    <label for="title">Titulo</label>
+                    <input type="text" name="title" v-model="article.title" required/>
+                    <div class="input-errors" v-if="submitted && v$.article.title.required.$invalid">
+                        Este campo es requerido
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content">Contenido</label>
+                    <textarea name="content" v-model="article.content" required></textarea>
+                    <div class="input-errors" v-if="submitted && v$.article.content.required.$invalid">
+                        Este campo es requerido
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div v-if="isEdit && article.image">
+                        <img 
+                                :src="url+'get-image/'+article.image"
+                                :alt="article.title" 
+                                class="image-small"
+                        />
+                    </div>
+                    <label for="image">Imagen</label>
+                    <input type="file" id="file" ref="file" name="file0" v-on:change="fileChange()" />
+                </div>
+                <input type="submit" value="Guardar" class="btn btn-success">
+            </form>
+
+        </section> 
+    </div>
+    <SiderbarComponent></SiderbarComponent>
+    <div class="clearfix"></div>
+</div>
