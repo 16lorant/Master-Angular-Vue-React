@@ -24,7 +24,9 @@
                 <span class="date">
                     {{ convertMoment(article.date) }}
                 </span>
-                <a href="#">Leer mas</a>
+                <router-link :to="{name:'article',params:{id:article._id}}">                        
+                        Leer mas
+                </router-link>
                 <div class="clearfix"></div>
             </article>
         </div>
